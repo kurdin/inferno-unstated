@@ -1,7 +1,5 @@
 <div align="center">
-  <br><br><br><br><br>
   <img src="https://raw.githubusercontent.com/thejameskyle/unstated/master/logo.png" alt="Unstated Logo" width="400">
-  <br><br><br><br><br><br><br><br>
 </div>
 
 # Unstated
@@ -404,11 +402,11 @@ function Counter() {
 
 You just need to keep a couple things in mind:
 
-1. You are opting out of dependency injection, you won't be able to
-   `<Provider inject>` another instance in your tests.
-2. Your instance will be local to whatever `<Subscribe>`'s you pass it to, you
-   will end up with multiple instances of your container if you don't pass the
-   same reference in everywhere.
+1.  You are opting out of dependency injection, you won't be able to
+    `<Provider inject>` another instance in your tests.
+2.  Your instance will be local to whatever `<Subscribe>`'s you pass it to, you
+    will end up with multiple instances of your container if you don't pass the
+    same reference in everywhere.
 
 Also remember that it is _okay_ to use `<Provider inject>` in your application
 code, you can pass your instance in there. It's probably better to do that in
