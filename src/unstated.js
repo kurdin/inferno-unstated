@@ -1,54 +1,38 @@
 // @flow
-import React, { type Node } from 'react';
-import createReactContext from 'create-react-context';
+import { Component } from 'inferno';
+import createContext from 'create-inferno-context';
 import PropTypes from 'prop-types';
 
-const StateContext = createReactContext(null);
+const StateContext = createContext(null);
 
-export class Container<State: {}> {
-  state: State;
-  _listeners: Array<() => mixed> = [];
+export class Container {
+  state;
+  _listeners = [];
 
-  setState(state: $Shape<State>) {
+  setState(state) {
     this.state = Object.assign({}, this.state, state);
     this._listeners.forEach(fn => fn());
   }
 
-  subscribe(fn: Function) {
+  subscribe(fn) {
     this._listeners.push(fn);
   }
 
-  unsubscribe(fn: Function) {
+  unsubscribe(fn) {
     this._listeners = this._listeners.filter(f => f !== fn);
   }
 }
 
-export type ContainerType = Container<Object>;
-export type ContainersType = Array<Class<ContainerType> | ContainerType>;
-export type ContainerMapType = Map<Class<ContainerType>, ContainerType>;
-
-export type SubscribeProps<Containers: ContainersType> = {
-  to: Containers,
-  children: (
-    ...instances: $TupleMap<Containers, <C>(Class<C> | C) => C>
-  ) => Node
-};
-
-type SubscribeState = {};
-
 const DUMMY_STATE = {};
 
-export class Subscribe<Containers: ContainersType> extends React.Component<
-  SubscribeProps<Containers>,
-  SubscribeState
-> {
+export class Subscribe extends Component {
   static propTypes = {
     to: PropTypes.array.isRequired,
     children: PropTypes.func.isRequired
   };
 
   state = {};
-  instances: Array<ContainerType> = [];
+  instances = [];
 
   componentWillUnmount() {
     this._unsubscribe();
@@ -64,12 +48,9 @@ export class Subscribe<Containers: ContainersType> extends React.Component<
     this.setState(DUMMY_STATE);
   };
 
-  _createInstances(
-    map: ContainerMapType | null,
-    containers: ContainersType
-  ): Array<ContainerType> {
+  _createInstances(map, container) {
     this._unsubscribe();
-                       
+
     if (map === null) {
       throw new Error(
         'You must wrap your <Subscribe> components with a <Provider>'
@@ -118,12 +99,7 @@ export class Subscribe<Containers: ContainersType> extends React.Component<
   }
 }
 
-export type ProviderProps = {
-  inject?: Array<ContainerType>,
-  children: Node
-};
-
-export function Provider(props: ProviderProps) {
+export function Provider(props) {
   return (
     <StateContext.Consumer>
       {parentMap => {

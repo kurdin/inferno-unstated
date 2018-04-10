@@ -1,36 +1,26 @@
-// @flow
-import React from 'react';
-import { render } from 'react-dom';
-import { Provider, Subscribe, Container } from '../src/unstated';
+import { render } from 'inferno';
+import { Provider, Subscribe, Container } from '../lib/unstated';
 
-type AppState = {
-  amount: number
-};
-
-class AppContainer extends Container<AppState> {
+class AppContainer extends Container {
   state = {
     amount: 1
   };
 
-  setAmount(amount: number) {
+  setAmount(amount) {
     this.setState({ amount });
   }
 }
 
-type CounterState = {
-  count: number
-};
-
-class CounterContainer extends Container<CounterState> {
+class CounterContainer extends Container {
   state = {
     count: 0
   };
 
-  increment(amount: number) {
+  increment(amount) {
     this.setState({ count: this.state.count + amount });
   }
 
-  decrement(amount: number) {
+  decrement(amount) {
     this.setState({ count: this.state.count - amount });
   }
 }

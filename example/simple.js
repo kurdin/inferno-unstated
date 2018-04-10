@@ -1,13 +1,7 @@
-// @flow
-import React from 'react';
-import { render } from 'react-dom';
-import { Provider, Subscribe, Container } from '../src/unstated';
+import { render } from 'inferno';
+import { Provider, Subscribe, Container } from '../lib/unstated';
 
-type CounterState = {
-  count: number
-};
-
-class CounterContainer extends Container<CounterState> {
+class CounterContainer extends Container {
   state = { count: 0 };
 
   increment() {

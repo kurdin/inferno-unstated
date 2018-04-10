@@ -18,6 +18,8 @@ module.exports = {
   ],
   plugins: [
     'transform-class-properties',
+    ['inferno', { imports: true }],
+    'syntax-jsx',
     cjs && 'transform-es2015-modules-commonjs'
   ].filter(Boolean)
 };

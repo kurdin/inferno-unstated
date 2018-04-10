@@ -1,11 +1,11 @@
 {
-  "name": "unstated",
+  "name": "inferno-unstated",
   "version": "1.2.0",
   "description": "State so simple, it goes without saying",
   "main": "lib/unstated.js",
   "module": "lib/unstated.es.js",
   "types": "lib/unstated.d.ts",
-  "repository": "https://github.com/thejameskyle/unstated",
+  "repository": "https://github.com/kurdin/inferno-unstated",
   "author": "James Kyle <me@thejameskyle.com>",
   "license": "MIT",
   "files": ["lib"],
@@ -22,19 +22,20 @@
     "typescript": "tsc -p tsconfig.json"
   },
   "dependencies": {
-    "create-react-context": "^0.1.5"
+    "create-inferno-context": "^0.2.3"
   },
   "peerDependencies": {
     "prop-types": "^15.5.0",
-    "react": "^15.0.0 || ^16.0.0"
+    "inferno": "^5.0.1"
   },
   "devDependencies": {
-    "@types/react": "^16.0.36",
     "babel-core": "^6.26.0",
     "babel-plugin-transform-class-properties": "^6.24.1",
     "babel-preset-env": "^1.6.1",
     "babel-preset-flow": "^6.23.0",
     "babel-preset-react": "^6.24.1",
+    "babel-plugin-inferno": "^4.0.0",
+    "babel-plugin-syntax-jsx": "^6.18.0",
     "babel-register": "^6.26.0",
     "flow-bin": "^0.64.0",
     "flow-copy-source": "^1.2.2",
@@ -45,9 +46,7 @@
     "parcel-bundler": "^1.5.1",
     "prettier": "^1.10.2",
     "prop-types": "^15.6.0",
-    "react": "^16.2.0",
-    "react-dom": "^16.2.0",
-    "react-test-renderer": "^16.2.0",
+    "inferno": "^5.0.1",
     "rollup": "^0.55.3",
     "rollup-plugin-babel": "^3.0.3",
     "typescript": "^2.7.1"
