@@ -74,7 +74,7 @@ For more examples, see the `example/` directory.
 ## Guide
 
 If you're like me, you're sick of all the ceremony around state management in
-React. Something that fits in well with the React way of thinking, but doesn't
+Inferno. Something that fits in well with the Inferno way of thinking, but doesn't
 command some crazy architecture and methodology.
 
 Component state is nice! It makes sense and people pick it up quickly:
@@ -104,7 +104,7 @@ As a new Inferno developer you might not know exactly how everything works, but
 you can get a general sense pretty quickly.
 
 The only problem here is that we can't easily share this state with other
-components in our tree. Which is intentional! React components are designed to
+components in our tree. Which is intentional! Inferno components are designed to
 be very self-contained.
 
 What would be great is if we could replicate the nice parts of Inferno's
@@ -160,7 +160,7 @@ render(
 );
 ```
 
-This is already pretty great. Once you get a little bit used to React's way of
+This is already pretty great. Once you get a little bit used to Inferno's way of
 thinking, it makes total sense and it's very predictable.
 
 But can we build on this pattern to make something even nicer?
@@ -169,7 +169,7 @@ But can we build on this pattern to make something even nicer?
 
 Well this is where Unstated comes in.
 
-Unstated is designed to build on top of the patterns already set out by React
+Unstated is designed to build on top of the patterns already set out by Inferno
 components and context.
 
 It has three pieces:
@@ -342,8 +342,6 @@ Like if form state has you down, you might want to use a library like
 [Final Form](https://github.com/final-form/react-final-form).
 
 If fetching data is getting to be too much, maybe try out [Apollo](https://www.apollographql.com).
-Or even something uncool but familiar and reliable like [Backbone models and collections](http://backbonejs.org).
-What? Are you too cool to use an old framework?
 
 Third, a lot of shared state between components is localized to a few
 components in the tree.
@@ -361,7 +359,6 @@ components in the tree.
 If you want to use your own instance of a container directly to `<Subscribe>`
 and you don't care about dependency injection, you can do so:
 
-<!-- prettier-ignore -->
 ```js
 let counter = new CounterContainer();
 
