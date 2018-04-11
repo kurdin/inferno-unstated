@@ -1,5 +1,5 @@
 import { render } from 'inferno';
-import { Provider, Subscribe, Container } from '../lib/unstated';
+import { Provider, Subscribe, Container } from '../src/unstated';
 
 class AppContainer extends Container {
   state = {
@@ -30,8 +30,9 @@ function Counter() {
     <Subscribe to={[AppContainer, CounterContainer]}>
       {(app, counter) => (
         <div>
-          <span>Count: {counter.state.count}</span>
-          <button onClick={() => counter.decrement(app.state.amount)}>-</button>
+          {' '}
+          <span>Count: {counter.state.count}</span>{' '}
+          <button onClick={() => counter.decrement(app.state.amount)}>-</button>{' '}
           <button onClick={() => counter.increment(app.state.amount)}>+</button>
         </div>
       )}
@@ -49,7 +50,7 @@ function App() {
           <input
             type="number"
             value={app.state.amount}
-            onChange={event => {
+            onInput={event => {
               app.setAmount(parseInt(event.currentTarget.value, 10));
             }}
           />
@@ -59,9 +60,4 @@ function App() {
   );
 }
 
-render(
-  <Provider>
-    <App />
-  </Provider>,
-  window.complex
-);
+export default App;

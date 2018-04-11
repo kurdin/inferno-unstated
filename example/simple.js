@@ -1,5 +1,5 @@
 import { render } from 'inferno';
-import { Provider, Subscribe, Container } from '../lib/unstated';
+import { Provider, Subscribe, Container } from '../src/unstated';
 
 class CounterContainer extends Container {
   state = { count: 0 };
@@ -18,18 +18,12 @@ function Counter() {
     <Subscribe to={[CounterContainer]}>
       {counter => (
         <div>
-          <button onClick={() => counter.decrement()}>-</button>
-          <span>{counter.state.count}</span>
+          <button onClick={() => counter.decrement()}>-</button>{' '}
+          <span>{counter.state.count}</span>{' '}
           <button onClick={() => counter.increment()}>+</button>
         </div>
       )}
     </Subscribe>
   );
 }
-
-render(
-  <Provider>
-    <Counter />
-  </Provider>,
-  window.simple
-);
+export default Counter;
