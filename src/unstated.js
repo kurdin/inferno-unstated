@@ -48,7 +48,7 @@ export class Subscribe extends Component {
     this.setState(DUMMY_STATE);
   };
 
-  _createInstances(map, container) {
+  _createInstances(map, containers) {
     this._unsubscribe();
 
     if (map === null) {

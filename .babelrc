@@ -1,1 +1,21 @@
-{ "presets": ["./.babelrc.js"] }
+{
+	"presets": [
+		[
+			"env",
+			{
+				"modules": false,
+				"loose": true,
+				"targets": {
+					"browsers": ["last 1 version"]
+				}
+			}
+		],
+		"stage-2"
+	],
+	"plugins": [
+		"transform-class-properties",
+		["inferno", { "imports": true }],
+		"transform-decorators-legacy",
+		"syntax-jsx"
+	]
+}

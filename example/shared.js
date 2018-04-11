@@ -1,10 +1,6 @@
 import { render } from 'inferno';
 import { Provider, Subscribe, Container } from '../lib/unstated';
 
-type CounterState = {
-  count: number
-};
-
 class CounterContainer extends Container {
   state = { count: 0 };
 
