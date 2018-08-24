@@ -1,4 +1,4 @@
-import * as React from 'react';
+import * as Inferno from 'inferno';
 
 export class Container<State extends object> {
   state: State;
@@ -13,14 +13,14 @@ export interface ContainerType<State extends object> {
 
 interface SubscribeProps {
   to: ContainerType<any>[];
-  children(...instances: Container<any>[]): React.ReactNode;
+  children(...instances: Container<any>[]): Inferno.VNode;
 }
 
-export class Subscribe extends React.Component<SubscribeProps> {}
+export class Subscribe extends Inferno.Component<SubscribeProps> {}
 
 export interface ProviderProps {
   inject?: Container<any>[];
-  children: React.ReactNode;
+  children: Inferno.VNode;
 }
 
-export const Provider: React.SFC<ProviderProps>;
+export const Provider: Inferno.SFC<ProviderProps>;
